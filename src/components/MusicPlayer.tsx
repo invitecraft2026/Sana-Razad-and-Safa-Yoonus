@@ -39,7 +39,7 @@ const MusicPlayer = ({ started }: MusicPlayerProps) => {
       <audio
         ref={audioRef}
         loop
-        src="https://cdn.pixabay.com/audio/2024/11/04/audio_4956b4ece1.mp3"
+        src="/new wedding nasheed.mpeg"
       />
       <motion.button
         onClick={toggle}

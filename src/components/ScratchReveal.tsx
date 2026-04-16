@@ -13,6 +13,7 @@ const ScratchReveal = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const rect = canvas.getBoundingClientRect();
+
     canvas.width = rect.width * 2;
     canvas.height = rect.height * 2;
     ctx.scale(2, 2);
@@ -30,6 +31,7 @@ const ScratchReveal = () => {
     ctx.font = `${Math.min(rect.width * 0.06, 20)}px 'Cormorant Garamond', serif`;
     ctx.textAlign = "center";
     ctx.fillText("✨ Scratch to Reveal ✨", rect.width / 2, rect.height / 2 - 10);
+
     ctx.font = `${Math.min(rect.width * 0.04, 14)}px 'Lora', serif`;
     ctx.fillStyle = "hsl(270, 30%, 80%)";
     ctx.fillText("Swipe here with your finger", rect.width / 2, rect.height / 2 + 20);
@@ -45,6 +47,7 @@ const ScratchReveal = () => {
       if (!canvas || revealed) return;
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
+
       const rect = canvas.getBoundingClientRect();
       const x = clientX - rect.left;
       const y = clientY - rect.top;
@@ -89,6 +92,7 @@ const ScratchReveal = () => {
         >
           A Special Surprise
         </motion.p>
+
         <motion.h2
           className="font-display text-3xl md:text-4xl mb-8 text-foreground"
           initial={{ opacity: 0, y: 20 }}
@@ -122,6 +126,7 @@ const ScratchReveal = () => {
               <p className="font-script text-3xl md:text-4xl text-wedding-purple mb-4">
                 Save the Date
               </p>
+
               <div className="space-y-3">
                 <p className="font-elegant text-lg md:text-xl text-foreground">
                   📅 Saturday, 25 April 2026
@@ -129,13 +134,25 @@ const ScratchReveal = () => {
                 <p className="font-elegant text-lg md:text-xl text-foreground">
                   🕐 11:00 AM
                 </p>
-                <p className="font-elegant text-lg md:text-xl text-foreground">
+                {/* <p className="font-elegant text-lg md:text-xl text-foreground">
                   📍 White Oak Castle
                 </p>
-                <p className="font-body text-sm text-muted-foreground">
+                <p className="font-body text-sm text-foreground">
                   Markaz Moodal, Kuttipuram
-                </p>
+                </p> */}
               </div>
+
+              {/* ✅ Add to Calendar Button */}
+              {revealed && (
+                <a
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Double+Wedding+Celebration+-+Sana+%26+Razad+%2C+Safa+%26+Yoonus&dates=20260425T110000/20260425T130000&details=Join+us+for+the+double+wedding+celebration&location=White+Oak+Castle,+Markaz+Moodal,+Kuttipuram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-6 px-6 py-2 rounded-full border border-wedding-gold text-wedding-purple text-sm font-medium hover:bg-wedding-purple hover:text-white transition-all duration-300"
+                >
+                  📅 Add to Calendar
+                </a>
+              )}
             </motion.div>
           </div>
 

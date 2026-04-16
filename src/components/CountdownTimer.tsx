@@ -51,7 +51,7 @@ const CountdownTimer = () => {
         >
           The Big Day
         </motion.h2>
-        <motion.p
+        {/* <motion.p
           className="font-elegant text-lg md:text-xl text-muted-foreground mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -59,7 +59,7 @@ const CountdownTimer = () => {
           transition={{ delay: 0.2 }}
         >
           Saturday, 25 April 2026
-        </motion.p>
+        </motion.p> */}
 
         <div className="flex justify-center gap-4 md:gap-8">
           {timeLeft.map((unit, i) => (
