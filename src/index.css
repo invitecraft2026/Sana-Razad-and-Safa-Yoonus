@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 20% 98%;
+    --foreground: 270 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 30% 15%;
+
+    --primary: 270 60% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 30% 92%;
+    --secondary-foreground: 270 30% 15%;
+
+    --muted: 270 20% 94%;
+    --muted-foreground: 270 10% 45%;
+
+    --accent: 270 40% 85%;
+    --accent-foreground: 270 50% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 88%;
+    --input: 270 20% 88%;
+    --ring: 270 60% 50%;
+
+    --radius: 0.75rem;
+
+    /* Wedding-specific tokens */
+    --wedding-purple: 270 60% 50%;
+    --wedding-purple-light: 270 60% 75%;
+    --wedding-purple-dark: 270 60% 30%;
+    --wedding-gold: 40 80% 55%;
+    --wedding-gold-light: 40 70% 80%;
+    --wedding-rose: 330 50% 65%;
+    --wedding-blush: 330 30% 92%;
+    --wedding-cream: 40 30% 96%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(270 60% 20% / 0.85), hsl(270 40% 35% / 0.7), hsl(300 30% 25% / 0.6));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.15), hsl(0 0% 100% / 0.05));
+    --gradient-purple: linear-gradient(135deg, hsl(270 60% 50%), hsl(300 50% 55%), hsl(270 60% 65%));
+    --gradient-gold: linear-gradient(135deg, hsl(40 80% 55%), hsl(45 90% 65%), hsl(40 80% 55%));
+
+    --shadow-glow: 0 0 40px hsl(270 60% 50% / 0.3);
+    --shadow-glow-gold: 0 0 30px hsl(40 80% 55% / 0.3);
+    --shadow-soft: 0 10px 40px -10px hsl(270 30% 15% / 0.15);
+
+    --font-display: 'Playfair Display', serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-body: 'Lora', serif;
+    --font-elegant: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-white/20 backdrop-blur-xl;
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-soft), inset 0 1px 0 hsl(0 0% 100% / 0.1);
+  }
+
+  .glass-card-solid {
+    @apply rounded-2xl border border-white/30 backdrop-blur-lg;
+    background: hsl(0 0% 100% / 0.85);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .text-gradient-purple {
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-elegant {
+    font-family: var(--font-elegant);
+  }
+
+  .wedding-section {
+    @apply relative py-16 md:py-24 px-4 overflow-hidden;
+  }
+
+  .particle {
+    @apply absolute rounded-full;
+    background: radial-gradient(circle, hsl(270 60% 75% / 0.6), transparent);
+    animation: float-particle 6s ease-in-out infinite;
+  }
+
+  @keyframes float-particle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, hsl(270 60% 50%), hsl(40 80% 55%), hsl(270 60% 50%));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(270 60% 50% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(270 60% 50% / 0.6); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
